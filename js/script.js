@@ -7,7 +7,6 @@ function onBtnClick(){
 		event.target.innerText = 'O';
 		loop = 1
 	}
-	alert(loop)
 	console.log(loop);
 	//console.log(event.target.classList)
 }
