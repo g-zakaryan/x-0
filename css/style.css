@@ -1,0 +1,36 @@
+table{
+	margin: 10% 0 0 0;
+	border-collapse: collapse;
+}
+th{
+	width: 30px;
+	height: 30px;
+	border-color: rgb(122, 116, 116);
+	text-align: center;
+	font-size: 28px;
+	font-style: oblique ;
+	cursor: pointer;
+}
+.th1 {
+	border-style: none inset inset none;
+}
+.th2 {
+}
+.th3 {
+	border-style: none none inset inset;
+}
+.th4 {
+}
+.th5 {
+	border-style: inset inset inset inset;
+}
+.th6 {
+}
+.th7 {
+	border-style: inset inset none none;
+}
+.th8 {
+}
+.th9 {
+	border-style: inset none none inset;
+}
