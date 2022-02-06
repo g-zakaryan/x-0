@@ -5,9 +5,22 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>X-0</title>
-	<script src="/js/script.js"></script>
 	<link rel="stylesheet" href="css/style.css">
-	<script src="https://g-zakaryan.github.io/js/script.js"></script>
+	<script>
+		let loop = 1;
+		function onBtnClick(){
+			if (loop ===  1){
+			event.target.innerText = 'X';
+			loop = 0;
+			} else {
+				event.target.innerText = 'O';
+				loop = 1
+			}
+		alert(loop)
+		console.log(loop);
+		//console.log(event.target.classList)
+		}
+	</script>
 </head>
 <body>
 	<table>
@@ -28,6 +41,6 @@
 		</tr>
 	</table>
 	<input type="button" onclick="onBtnClick()">
-	<h1 onclick="onBtnClick()">ccc</h1>
+	<h1 onclick="onBtnClick()">dd</h1>
 </body>
 </html>
