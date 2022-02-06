@@ -1,5 +1,10 @@
+h1{
+	margin: 20% 0 0 38%;
+	color: blue;
+}
+
 table{
-	margin: 30% 0 0 30%;
+	margin: 10% 0 0 30%;
 	border-collapse: collapse;
 }
 th{

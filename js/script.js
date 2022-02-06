@@ -1,4 +1,6 @@
 let loop = 1;
+let arrX = [];
+let aaxO = [];
 function onBtnClick(){
 	if(event.target.innerText !== 'X' && event.target.innerText !== 'O'){
 		if (loop ===  1){
@@ -7,6 +9,9 @@ function onBtnClick(){
 		} else {
 			event.target.innerText = 'O';
 			loop = 1
+		}
+		if(event.target.innerText === 'X'){
+			console.log('ss');
 		}
 	}
 	
