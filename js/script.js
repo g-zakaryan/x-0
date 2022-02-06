@@ -11,12 +11,12 @@ function onBtnClick(){
 			loop = 1
 		}
 		if(event.target.innerText === 'X'){
-			console.log('ss');
+			arrX.push(event.target.className)
 		}
 	}
 	
 	//console.log(event);
-	console.log(event.target.className)
+	console.log(typeof(event.target.className))
 }
 let objWin = {
 	1: ['th1', 'th2', 'th3'],
