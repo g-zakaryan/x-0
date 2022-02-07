@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1 id="h1">Welcome!</h1>
-	<table id="table1" onclick="onBtnClick()">
+	<table id="table1">
 		<tr>
 			<th class="th1" ></th>
 			<th class="th2" ></th>
@@ -27,16 +27,16 @@
 			<th class="th9" ></th>
 		</tr>
 	</table>
-	<div class="d1">
+	<div id="d1" onclick="onBtnPoint()">
 		<form action="/action_page.php" id="formSelX0">
 			<h3>Select X or 0</h3>
 			<label for="selX" class="formSelX0_p1">X</label>
-			<input type="radio" id="selX" name="sel_x/0" checked onclick="onBtnClick()">
+			<input type="radio" class="test" id="selX" name="sel_x/0">
 			<label for="sel0" class="formSelX0_p2">0</label>
 			<input type="radio" id="sel0" name="sel_x/0">
 		</form>
-		<form action="/action_page.php" id="formSelPlayer" >
-			<input type="radio" id="play2" name="select_player" checked>
+		<form action="/action_page.php" id="formSelPlayer" onclick="">
+			<input type="radio" id="play2" name="select_player">
 			<label for="play2">2 Player</label><br>
 			<input type="radio" id="vsComp" name="select_player">
 			<label for="vsComp">VS Comp</label>

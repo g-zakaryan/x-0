@@ -1,8 +1,10 @@
-let loop = 1;
+let point;
+let comp;
+let compArr = []
 let arrX = [];
 let arr0 = [];
 let objWin = {
-	1: ['th1', 'th2', 'th3'],
+	1: ['th1', 'th2', 'th3'],    // ['th1']
 	2: ['th4', 'th5', 'th6'],
 	3: ['th7', 'th8', 'th9'],
 	4: ['th1', 'th4', 'th7'],
@@ -11,14 +13,29 @@ let objWin = {
 	7: ['th1', 'th5', 'th9'],
 	8: ['th3', 'th5', 'th7'],
 }
-function onBtnClick(){
-	if(event.target.innerText !== 'X' && event.target.innerText !== 'O'){
-		if (loop ===  1){
+
+function onBtnPoint(){
+	if (document.getElementById('selX').checked){
+		point = 'X';
+		comp = 'O';
+	} else {
+		point = 'O';
+		comp = 'X';		
+	}
+	if (document.getElementById('play2').checked){
+		document.getElementById('table1').onclick = onBtn2Player;
+	} else {
+		document.getElementById('table1').onclick = onBtnVScomp;
+	}
+}
+function onBtn2Player(){
+	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && document.getElementById('selX').checked || document.getElementById('sel0').checked){
+		if (point === 'X'){
 			event.target.innerText = 'X';
-			loop = 0;
+			point = 'O';
 		} else {
 			event.target.innerText = 'O';
-			loop = 1
+			point = 'X';
 		}
 		if(event.target.innerText === 'X'){
 			arrX.push(event.target.className)
@@ -59,3 +76,48 @@ function onBtnClick(){
 		document.getElementById('table1').onclick = '';
 	}
 }
+function funComp(){
+	let dubleElem;
+	compArr = [];
+	for (let key in objWin){
+		let arr = objWin[key];
+		dubleElem = 1;
+		for (let elem  of arrX){
+			if (arr.includes(elem)){
+				dubleElem++;
+			}
+		}
+		compArr.push(dubleElem);
+	}
+	arr0 = compArr.indexOf(Math.max(... compArr));
+	for(elem of objWin[arr0]){
+		console.log(arrX)
+		console.log(objWin[arr0], elem)
+		if(!arrX.includes(elem)){
+			event.target.innerText = 'O'
+		}
+	}
+}
+function onBtnVScomp(){
+	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && document.getElementById('selX').checked || document.getElementById('sel0').checked){
+		if(event.target.innerText === 'X'){
+			console.log(event.target.innerText)
+			arrX.push(event.target.className);
+		} else {
+			arr0.push(event.target.className);
+		}
+		funComp()
+	}
+
+}
+
+// function oncl(){
+// 	if(event.target.id === 'vsComp'){
+// 		console.log('vsComp')
+// 	}
+// 	if(event.target.id === 'play2'){
+// 		console.log('2pla')
+// 	}
+// 	console.log(document.getElementById('play2').checked,document.getElementById('vsComp').checked)
+	
+// }
