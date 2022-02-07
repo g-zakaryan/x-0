@@ -1,6 +1,6 @@
 let loop = 1;
 let arrX = [];
-let arrO = [];
+let arr0 = [];
 let objWin = {
 	1: ['th1', 'th2', 'th3'],
 	2: ['th4', 'th5', 'th6'],
@@ -24,33 +24,38 @@ function onBtnClick(){
 			arrX.push(event.target.className)
 		}
 		if(event.target.innerText === 'O'){
-			arrO.push(event.target.className)
+			arr0.push(event.target.className)
 		}
 	}
-	if (arrX.length >= 3 || arrO.length >= 3){
+	if (arrX.length >= 3 || arr0.length >= 3){
 		for(let key in objWin){
 			let winX = 0;
-			let winO = 0;
+			let win0 = 0;
 			let arr = objWin[key];
 			arrX.forEach(elem => {
 				if(arr.includes(elem)){
-					winX ++;
+					winX++;
 				}
 			});
-			arrO.forEach(elem => {
+			arr0.forEach(elem => {
 				if(arr.includes(elem)){
-					winO ++;
+					win0++;
 				}
 			});
-			console.log(winX, winO);
 			if (winX === 3){
-				alert ('Win X');
-			}else if (winO === 3){
-				alert ('Win O');
+				document.getElementById('h1').innerHTML = 'Win X';
+				document.getElementById('table1').onclick = '';
+				return;
+			}
+			if (win0 === 3){
+				document.getElementById('h1').innerHTML = 'Win 0';
+				document.getElementById('table1').onclick = '';
+				return;
 			}
 		}
 	}
-	if (arrX.length === 5 || arrO.length === 5){
-		alert('Draw');
+	if (arrX.length === 5 || arr0.length === 5){
+		document.getElementById('h1').innerHTML = 'Draw!';
+		document.getElementById('table1').onclick = '';
 	}
 }
