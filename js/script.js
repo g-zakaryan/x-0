@@ -81,9 +81,17 @@ function funComp(){
 	for (let key in objWin){
 		let arr = objWin[key];
 		dubleElemIndexCount = 0;
-		for (let elem  of arrX){
-			if (arr.includes(elem)){
-				dubleElemIndexCount++;
+		if (document.getElementById('selX').checked){
+			for (let elem  of arrX){
+				if (arr.includes(elem)){
+					dubleElemIndexCount++;
+				}
+			}
+		} else {
+			for (let elem  of arr0){
+				if (arr.includes(elem)){
+					dubleElemIndexCount++;
+				}
 			}
 		}
 		compArr.push(dubleElemIndexCount);
@@ -104,7 +112,6 @@ function onBtnVScomp(){
 		} else {
 			arr0.push(event.target.className);
 		}
-		console.log(point);
 		funComp()
 	}
 
