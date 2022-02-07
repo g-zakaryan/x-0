@@ -3,7 +3,7 @@ let comp;
 let arrX = [];
 let arr0 = [];
 let objWin = {
-	1: ['th1', 'th2', 'th3'],    // ['th1']
+	1: ['th1', 'th2', 'th3'],
 	2: ['th4', 'th5', 'th6'],
 	3: ['th7', 'th8', 'th9'],
 	4: ['th1', 'th4', 'th7'],
@@ -80,7 +80,7 @@ function funComp(){
 	let compArr = [];
 	for (let key in objWin){
 		let arr = objWin[key];
-		dubleElemIndexCount = 1;
+		dubleElemIndexCount = 0;
 		for (let elem  of arrX){
 			if (arr.includes(elem)){
 				dubleElemIndexCount++;
@@ -89,9 +89,10 @@ function funComp(){
 		compArr.push(dubleElemIndexCount);
 	}
 	let maxIndex = compArr.indexOf(Math.max(... compArr));
-	for(elem of objWin[maxIndex]){
+	for(elem of objWin[maxIndex + 1]){
 		if(!arrX.includes(elem)){
-			event.target.innerText = comp;
+			document.getElementsByClassName(elem)[0].innerText = comp;
+			return;
 		}
 	}
 }
@@ -103,6 +104,7 @@ function onBtnVScomp(){
 		} else {
 			arr0.push(event.target.className);
 		}
+		console.log(point);
 		funComp()
 	}
 
