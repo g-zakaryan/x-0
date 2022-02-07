@@ -1,6 +1,5 @@
 let point;
 let comp;
-let compArr = []
 let arrX = [];
 let arr0 = [];
 let objWin = {
@@ -77,38 +76,34 @@ function onBtn2Player(){
 	}
 }
 function funComp(){
-	let dubleElem;
-	compArr = [];
+	let dubleElemIndexCount;
+	let compArr = [];
 	for (let key in objWin){
 		let arr = objWin[key];
-		dubleElem = 1;
+		dubleElemIndexCount = 1;
 		for (let elem  of arrX){
 			if (arr.includes(elem)){
-				dubleElem++;
+				dubleElemIndexCount++;
 			}
 		}
-		compArr.push(dubleElem);
+		compArr.push(dubleElemIndexCount);
 	}
-	//arr0 = compArr.indexOf(Math.max(... compArr));
-	for(elem of objWin[arr0]){
-		console.log(arrX)
-		console.log(objWin[arr0], elem)
+	let maxIndex = compArr.indexOf(Math.max(... compArr));
+	for(elem of objWin[maxIndex]){
 		if(!arrX.includes(elem)){
-			event.target.innerText = 'O'
+			event.target.innerText = comp;
 		}
 	}
 }
 function onBtnVScomp(){
-	console.log(event.target.innerTextue !== 'X', event.target.className)
 	if(event.target.innerText !== 'X' && event.target.innerText !== 'O'){
-		event.target.innerText = 'X';
+		event.target.innerText = point;
 		if(event.target.innerText === 'X'){
-			console.log(event.target.innerText)
 			arrX.push(event.target.className);
 		} else {
 			arr0.push(event.target.className);
 		}
-		//funComp()
+		funComp()
 	}
 
 }
