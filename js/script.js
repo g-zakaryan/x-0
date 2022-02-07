@@ -89,7 +89,7 @@ function funComp(){
 		}
 		compArr.push(dubleElem);
 	}
-	arr0 = compArr.indexOf(Math.max(... compArr));
+	//arr0 = compArr.indexOf(Math.max(... compArr));
 	for(elem of objWin[arr0]){
 		console.log(arrX)
 		console.log(objWin[arr0], elem)
@@ -99,14 +99,16 @@ function funComp(){
 	}
 }
 function onBtnVScomp(){
-	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && document.getElementById('selX').checked || document.getElementById('sel0').checked){
+	console.log(event.target.innerTextue !== 'X', event.target.className)
+	if(event.target.innerText !== 'X' && event.target.innerText !== 'O'){
+		event.target.innerText = 'X';
 		if(event.target.innerText === 'X'){
 			console.log(event.target.innerText)
 			arrX.push(event.target.className);
 		} else {
 			arr0.push(event.target.className);
 		}
-		funComp()
+		//funComp()
 	}
 
 }
