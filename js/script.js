@@ -26,8 +26,9 @@ function onBtnPoint(){
 	} else {
 		document.getElementById('table1').onclick = onBtnVScomp;
 	}
-}
+ }
 function onBtn2Player(){
+	disabledSelector();
 	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && document.getElementById('selX').checked || document.getElementById('sel0').checked){
 		if (point === 'X'){
 			event.target.innerText = 'X';
@@ -97,6 +98,8 @@ function funComp(){
 		compArr.push(dubleElemIndexCount);
 	}
 	let maxIndex = compArr.indexOf(Math.max(... compArr));
+	// console.log(compArr, maxIndex + 1)
+	// console.log(objWin[maxIndex + 1], event.target.className, arrX)
 	for(elem of objWin[maxIndex + 1]){
 		if(!arrX.includes(elem)){
 			document.getElementsByClassName(elem)[0].innerText = comp;
@@ -105,6 +108,7 @@ function funComp(){
 	}
 }
 function onBtnVScomp(){
+	disabledSelector()
 	if(event.target.innerText !== 'X' && event.target.innerText !== 'O'){
 		event.target.innerText = point;
 		if(event.target.innerText === 'X'){
@@ -116,7 +120,12 @@ function onBtnVScomp(){
 	}
 
 }
-
+function disabledSelector(){
+	document.getElementById('selX').disabled = true
+	document.getElementById('sel0').disabled = true
+	document.getElementById('play2').disabled = true
+	document.getElementById('vsComp').disabled = true
+}
 // function oncl(){
 // 	if(event.target.id === 'vsComp'){
 // 		console.log('vsComp')
