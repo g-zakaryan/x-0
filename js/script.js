@@ -145,8 +145,6 @@ function resetGame(){
 	
 	document.getElementById('selX').disabled = false;
 	document.getElementById('sel0').disabled = false;
-	document.getElementById('play2').disabled = false;
-	document.getElementById('vsComp').disabled = false;
 	arrX = [];
 	arr0 = [];
 	for(key in objWin){
