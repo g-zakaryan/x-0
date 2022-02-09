@@ -117,7 +117,8 @@ function funComp(){
 			document.getElementsByClassName(elem)[0].innerText = comp;
 			return;
 		} else {
-			
+			maxIndex = compArr.indexOf(Math.max(... compArr), maxIndex + 1);
+
 		}
 	}
 }

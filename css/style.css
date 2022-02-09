@@ -1,4 +1,10 @@
-
+html,body{
+	height: 50%;
+	width: 50%;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
 h1{
 	margin: 10% 0 0 30%;
 	color: blue;
