@@ -1,10 +1,10 @@
 h1{
-	margin: 10% 0 0 45%;
+	margin: 10% 0 0 15%;
 	color: blue;
 }
 
 table{
-	margin: 5% 0 0 45%;
+	margin: 5% 0 0 15%;
 	border-collapse: collapse;
 }
 th{
@@ -40,7 +40,7 @@ th{
 	border-style: inset none none inset;
 }
 #d1 {
-	margin: 5% 0 0 45%;
+	margin: 5% 0 0 15%;
 }
 h3{
 	margin: 0 0 5px;
