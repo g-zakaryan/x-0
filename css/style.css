@@ -1,14 +1,11 @@
-body{
-	width: 300px;
-	height: 300px;
-}
+
 h1{
-	margin: 10% 0 0 15%;
+	margin: 10% 0 0 30%;
 	color: blue;
 }
 
 table{
-	margin: 5% 0 0 15%;
+	margin: 5% 0 0 30%;
 	border-collapse: collapse;
 }
 th{
@@ -44,7 +41,7 @@ th{
 	border-style: inset none none inset;
 }
 #d1 {
-	margin: 5% 0 0 15%;
+	margin: 5% 0 0 30%;
 }
 h3{
 	margin: 0 0 5px;
