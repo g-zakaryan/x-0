@@ -2,6 +2,7 @@ let point;
 let comp;
 let arrX = [];
 let arr0 = [];
+let compArr = [];
 let objWin = {
 	1: ['th1', 'th2', 'th3'],
 	2: ['th4', 'th5', 'th6'],
@@ -41,7 +42,6 @@ function onBtnPoint(){
 function onBtn2Player(){
 	disabledSelector();
 	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && (document.getElementById('selX').checked || document.getElementById('sel0').checked)){
-		console.log(true)
 		if (point === 'X'){
 			event.target.innerText = 'X';
 			point = 'O';
@@ -88,68 +88,49 @@ function onBtn2Player(){
 		document.getElementById('table1').onclick = '';
 	}
 }
-function funComp(){
-	let dubleElemIndexCount;
-	let compArr = [];
-	for (let key in objWin){
-		let arr = objWin[key];
-		dubleElemIndexCount = 0;
-		if (document.getElementById('selX').checked){
-			for (let elem  of arrX){
-				if (arr.includes(elem)){
-					dubleElemIndexCount++;
-				}
-			}
-		} else {
-			for (let elem  of arr0){
-				if (arr.includes(elem)){
-					dubleElemIndexCount++;
-				}
-			}
-		}
-		compArr.push(dubleElemIndexCount);
+function intelligence(){
+	let randomNum = Math.floor(Math.random() * 8 + 1);
+	let objWinArr= ['th1', 'th2', 'th3','th4', 'th5', 'th6', 'th7', 'th8', 'th9']
+	let player;
+	if (document.getElementById('selX').checked){
+		player = arrX;
+	} else {
+		player = arr0;
 	}
-	let maxIndex = compArr.indexOf(Math.max(... compArr));
-	console.log(`comparr = ${compArr}`,`maxIndex = ${maxIndex + 1}`)
-	console.log(objWin[maxIndex + 1], arrX, event.target.className)
-	for(elem of objWin[maxIndex + 1]){
-		if(!arrX.includes(elem) && document.getElementsByClassName(elem)[0].innerText === ''){
-			document.getElementsByClassName(elem)[0].innerText = comp;
-			return;
-		} else {
-			maxIndex = compArr.indexOf(Math.max(... compArr), maxIndex + 1);
-
-		}
+	if(document.getElementsByClassName(objWinArr[randomNum - 1])[0].innerText === ''){
+		document.getElementsByClassName(objWinArr[randomNum - 1])[0].innerText = comp;
+		compArr.push(objWinArr[randomNum - 1])
+	} else if (compArr.length < 4){
+		intelligence();
 	}
-
-	if (arrX.length >= 3 || arr0.length >= 3){
+	if (player.length >= 3 || compArr.length >= 3){
 		for(let key in objWin){
-			let winX = 0;
-			let win0 = 0;
+			let winP = 0;
+			let winC = 0;
 			let arr = objWin[key];
-			arrX.forEach(elem => {
+			player.forEach(elem => {
 				if(arr.includes(elem)){
-					winX++;
+					winP++;
 				}
 			});
-			arr0.forEach(elem => {
+			compArr.forEach(elem => {
 				if(arr.includes(elem)){
-					win0++;
+					winC++;
 				}
 			});
-			if (winX === 3){
-				document.getElementById('h1').innerHTML = 'Win X';
+			if (winP === 3){
+				document.getElementById('h1').innerHTML = 'Win Player';
 				document.getElementById('table1').onclick = '';
 				return;
 			}
-			if (win0 === 3){
-				document.getElementById('h1').innerHTML = 'Win 0';
+			if (winC === 3){
+				document.getElementById('h1').innerHTML = 'Win Comp';
 				document.getElementById('table1').onclick = '';
 				return;
 			}
 		}
 	}
-	if (arrX.length === 5 || arr0.length === 5){
+	if (player.length === 5 || compArr.length === 5){
 		document.getElementById('h1').innerHTML = 'Draw!';
 		document.getElementById('table1').onclick = '';
 	}
@@ -163,7 +144,8 @@ function onBtnVScomp(){
 		} else {
 			arr0.push(event.target.className);
 		}
-		funComp()
+		// funComp();
+		intelligence()
 	}
 
 }
@@ -182,14 +164,10 @@ function resetGame(){
 	document.getElementById('sel0').disabled = false;
 	arrX = [];
 	arr0 = [];
+	compArr = [];
 	for(key in objWin){
 		for(let elem of objWin[key]){
 			document.getElementsByClassName(elem)[0].innerText = '';
 		}
 	}
 }
-
-
-// function oncl(){
-// 	console.log(event)
-// }
