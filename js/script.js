@@ -37,11 +37,11 @@ function onBtnPoint(){
 			document.getElementById('formSelPlayer').onclick = onBtnPoint;
 		}
 	}
-	
  }
 function onBtn2Player(){
 	disabledSelector();
-	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && document.getElementById('selX').checked || document.getElementById('sel0').checked){
+	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && (document.getElementById('selX').checked || document.getElementById('sel0').checked)){
+		console.log(true)
 		if (point === 'X'){
 			event.target.innerText = 'X';
 			point = 'O';
@@ -121,6 +121,38 @@ function funComp(){
 
 		}
 	}
+
+	if (arrX.length >= 3 || arr0.length >= 3){
+		for(let key in objWin){
+			let winX = 0;
+			let win0 = 0;
+			let arr = objWin[key];
+			arrX.forEach(elem => {
+				if(arr.includes(elem)){
+					winX++;
+				}
+			});
+			arr0.forEach(elem => {
+				if(arr.includes(elem)){
+					win0++;
+				}
+			});
+			if (winX === 3){
+				document.getElementById('h1').innerHTML = 'Win X';
+				document.getElementById('table1').onclick = '';
+				return;
+			}
+			if (win0 === 3){
+				document.getElementById('h1').innerHTML = 'Win 0';
+				document.getElementById('table1').onclick = '';
+				return;
+			}
+		}
+	}
+	if (arrX.length === 5 || arr0.length === 5){
+		document.getElementById('h1').innerHTML = 'Draw!';
+		document.getElementById('table1').onclick = '';
+	}
 }
 function onBtnVScomp(){
 	disabledSelector()
@@ -142,6 +174,7 @@ function disabledSelector(){
 	document.getElementById('vsComp').disabled = true;
 }
 function resetGame(){
+	document.getElementById('h1').innerHTML = 'Welcome!';
 	document.getElementById('formSelX0').reset()
 	document.getElementById('formSelPlayer').reset()
 	
@@ -155,6 +188,8 @@ function resetGame(){
 		}
 	}
 }
+
+
 // function oncl(){
 // 	console.log(event)
 // }
