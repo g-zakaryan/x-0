@@ -14,20 +14,33 @@ let objWin = {
 }
 
 function onBtnPoint(){
-	if (document.getElementById('selX').checked){
-		point = 'X';
-		comp = 'O';
-	} else {
-		point = 'O';
-		comp = 'X';		
+	if(!document.getElementById('play2').disabled ){
+		if (document.getElementById('play2').checked){
+			document.getElementById('table1').onclick = onBtn2Player;
+		}
+		if (document.getElementById('vsComp').checked){
+			document.getElementById('table1').onclick = onBtnVScomp;
+		}
 	}
-	if (document.getElementById('play2').checked){
-		document.getElementById('table1').onclick = onBtn2Player;
-	} else {
-		document.getElementById('table1').onclick = onBtnVScomp;
+	if (!document.getElementById('selX').checked || !document.getElementById('sel0').checked){3
+		if (document.getElementById('selX').checked){
+			point = 'X';
+			comp = 'O';
+		}
+		if (document.getElementById('sel0').checked){
+			point = 'O';
+			comp = 'X';
+		}
+		if (document.getElementById('selX').checked || document.getElementById('sel0').checked){
+			document.getElementById('play2').disabled = false;
+			document.getElementById('vsComp').disabled = false;
+			document.getElementById('formSelPlayer').onclick = onBtnPoint;
+		}
 	}
+	
  }
 function onBtn2Player(){
+	console.log(event)
 	disabledSelector();
 	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && document.getElementById('selX').checked || document.getElementById('sel0').checked){
 		if (point === 'X'){
@@ -121,18 +134,27 @@ function onBtnVScomp(){
 
 }
 function disabledSelector(){
-	document.getElementById('selX').disabled = true
-	document.getElementById('sel0').disabled = true
-	document.getElementById('play2').disabled = true
-	document.getElementById('vsComp').disabled = true
+	document.getElementById('selX').disabled = true;
+	document.getElementById('sel0').disabled = true;
+	document.getElementById('play2').disabled = true;
+	document.getElementById('vsComp').disabled = true;
+}
+function resetGame(){
+	document.getElementById('formSelX0').reset()
+	document.getElementById('formSelPlayer').reset()
+	
+	document.getElementById('selX').disabled = false;
+	document.getElementById('sel0').disabled = false;
+	document.getElementById('play2').disabled = false;
+	document.getElementById('vsComp').disabled = false;
+	arrX = [];
+	arr0 = [];
+	for(key in objWin){
+		for(let elem of objWin[key]){
+			document.getElementsByClassName(elem)[0].innerText = '';
+		}
+	}
 }
 // function oncl(){
-// 	if(event.target.id === 'vsComp'){
-// 		console.log('vsComp')
-// 	}
-// 	if(event.target.id === 'play2'){
-// 		console.log('2pla')
-// 	}
-// 	console.log(document.getElementById('play2').checked,document.getElementById('vsComp').checked)
-	
+// 	console.log(event)
 // }
