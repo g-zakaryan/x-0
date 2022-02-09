@@ -110,12 +110,14 @@ function funComp(){
 		compArr.push(dubleElemIndexCount);
 	}
 	let maxIndex = compArr.indexOf(Math.max(... compArr));
-	console.log(compArr, maxIndex + 1)
-	console.log(objWin[maxIndex + 1], event.target.className, arrX)
+	console.log(`comparr = ${compArr}`,`maxIndex = ${maxIndex + 1}`)
+	console.log(objWin[maxIndex + 1], arrX, event.target.className)
 	for(elem of objWin[maxIndex + 1]){
-		if(!arrX.includes(elem)){
+		if(!arrX.includes(elem) && document.getElementsByClassName(elem)[0].innerText === ''){
 			document.getElementsByClassName(elem)[0].innerText = comp;
 			return;
+		} else {
+			
 		}
 	}
 }
