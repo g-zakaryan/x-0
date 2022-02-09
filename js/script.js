@@ -40,7 +40,6 @@ function onBtnPoint(){
 	
  }
 function onBtn2Player(){
-	console.log(event)
 	disabledSelector();
 	if(event.target.innerText !== 'X' && event.target.innerText !== 'O' && document.getElementById('selX').checked || document.getElementById('sel0').checked){
 		if (point === 'X'){
@@ -111,8 +110,8 @@ function funComp(){
 		compArr.push(dubleElemIndexCount);
 	}
 	let maxIndex = compArr.indexOf(Math.max(... compArr));
-	// console.log(compArr, maxIndex + 1)
-	// console.log(objWin[maxIndex + 1], event.target.className, arrX)
+	console.log(compArr, maxIndex + 1)
+	console.log(objWin[maxIndex + 1], event.target.className, arrX)
 	for(elem of objWin[maxIndex + 1]){
 		if(!arrX.includes(elem)){
 			document.getElementsByClassName(elem)[0].innerText = comp;
